@@ -203,15 +203,6 @@
     \def\@author{#1}%
     \hypersetup{pdfauthor=#1}%
 }
-%% The affiliation is shown in the blue box on the front cover.
-\newcommand*\affiliation[1]{\def\@affiliation{#1}}
-%% The cover command is used to specify the filename of the optional cover
-%% image.
-\newcommand*\coverimage[1]{\def\@cover@image{#1}}
-%% The covertext command can be used to specify the text printed on the back
-%% cover. This text is inserted in a minipage environment and can therefore
-%% include line breaks.
-\newcommand\covertext[1]{\def\@cover@text{#1}}
 
 %%%%%%%%%%%%
 %% HTWG

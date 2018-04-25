@@ -154,9 +154,7 @@
     \def\headerstyle{\titlestyle}
 \fi
 
-%%%%%%%%%%%%
-%% HTWG
-%%%%%%%%%%%%
+
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
 
@@ -181,7 +179,10 @@
 %% HTWG
 %%%%%%%%%%%%
 \definecolor{htwg-white}{cmyk}{0.0,0.0,0.0,0.0}
+\definecolor{htwg-black}{cmyk}{0.0,0.0,0.0,1.0}
+\definecolor{htwg-soft-blue}{cmyk}{0.1,0.0,0.0,0.1}
 \definecolor{htwg-dark-blue}{cmyk}{0.8,0.62,0.42,0.45}
+\definecolor{htwg-teal}{cmyk}{1.0,0.0,0.5,0.0}
 
 %% Use TU Delft cyan as the color for titles, unless the 'print' option is
 %% specified.
@@ -215,6 +216,27 @@
 %% cover. This text is inserted in a minipage environment and can therefore
 %% include line breaks.
 \newcommand\covertext[1]{\def\@cover@text{#1}}
+
+%%%%%%%%%%%%
+%% HTWG
+%%%%%%%%%%%%
+
+%%% Report-Type
+% 'bachelor'
+% 'master'
+% [other]
+\newcommand\reporttype[1]{\def\@report@type{#1}}
+\newcommand\reporttypetext[1]{\def\@report@typetext{#1}}
+\def\bachelor{bachelor}
+\def\master{master}
+
+%%% Student
+\newcommand\studentnumber[1]{\def\@student@number{#1}}
+\newcommand\studentemail[1]{\def\@student@email{#1}}
+
+%%% Document
+\newcommand\doclocation[1]{\def\@doc@location{#1}}
+\newcommand\docdate[1]{\def\@doc@date{#1}}
 
 %% The cover image is scaled to fill the width of the front cover.
 \newlength\@cover@imagewidth
@@ -255,6 +277,15 @@
 \define@key{cover}{x}{\setlength\@cover@x{#1}}
 \define@key{cover}{y}{\setlength\@cover@y{#1}}
 \define@key{cover}{margin}{\setlength\@cover@margin{#1}}
+
+
+
+
+
+
+
+
+
 
 \newcommand*\makecover[1][]{%
     \setkeys{cover}{#1}%
@@ -340,45 +371,61 @@
         %%%%%%%%%%%%
         %% HTWG
         %%%%%%%%%%%%
-        %% Create the date text box.
+        %% Create the background elements.
+        \begingroup
+            \ifx\@report@type\bachelor
+                \node at (15.8mm,-82.1mm)[anchor=center]{
+                    \includegraphics[scale=0.165]{cover/B_black}
+                };
+                \node at (36.8mm,-250.1mm)[anchor=center]{
+                    \includegraphics[scale=0.17]{cover/S_black}
+                };
+                \node at (162.8mm,-124.1mm)[anchor=center]{
+                    \includegraphics[scale=0.15]{cover/C_black}
+                };
+            \else\ifx\@report@type\master
+                \node at (15.8mm,-82.1mm)[anchor=center]{
+                    \includegraphics[scale=0.165]{cover/M_black}
+                };
+                \node at (36.8mm,-250.1mm)[anchor=center]{
+                    \includegraphics[scale=0.17]{cover/S_black}
+                };
+                \node at (162.8mm,-124.1mm)[anchor=center]{
+                    \includegraphics[scale=0.15]{cover/C_black}
+                };
+            \else
+              %nothing%
+            \fi\fi
+        \endgroup
 
-        \node at (15.8mm,-82.1mm)[anchor=center]{
-            \includegraphics[scale=0.165]{cover/B_black}
-        };
-        \node at (36.8mm,-250.1mm)[anchor=center]{
-            \includegraphics[scale=0.17]{cover/S_black}
-        };
-        \node at (162.8mm,-124.1mm)[anchor=center]{
-            \includegraphics[scale=0.15]{cover/C_black}
-        };
+
 
 
         %% Create the titel text box.
         \node at (14.5mm,-174.5mm)[anchor=north west, fill=htwg-dark-blue]{
             \begin{minipage}[t]{145mm}
                 \begin{flushleft}
-                %% Print the title and optional subtitle at the top in white.
-                \color{htwg-white}\Huge\textbf{Bachelor Thesis}
-                \ifx\@subtitle\undefined\else
+                    %% Print Report Type Text
+                    \color{htwg-white}\Huge\textbf{\@report@typetext}
                     \\
-                    \Huge\@subtitle
-                \fi
+                    %% Print Report Title
+                    \color{htwg-white}\Huge{\@title}
                 \end{flushleft}
             \end{minipage}
         };
 
-        %% Create the name text box.
+        %% Create the author text box.
         \node at (140.5mm,-37mm)[anchor=north west, fill=htwg-dark-blue]{
             \begin{minipage}[t]{55mm}
                 \begin{flushleft}
                     \color{htwg-white}\footnotesize\textbf{Submitted by}
                     \linebreak
-                    \color{htwg-white}\footnotesize{Markus Funke}
+                    \color{htwg-white}\footnotesize{\@author}
                     \linebreak 
-                    \color{htwg-white}\footnotesize{Student Number 291992}
+                    \color{htwg-white}\footnotesize{Student Number \@student@number}
                     \linebreak
                     \linebreak
-                    \color{htwg-white}\footnotesize{markus.funke@htwg-konstanz.de}
+                    \color{htwg-white}\footnotesize{\@student@email}
                 \end{flushleft}
             \end{minipage}
         };
@@ -387,8 +434,8 @@
         \node at (140.5mm,-268mm)[anchor=north west, fill=htwg-dark-blue]{
             \begin{minipage}[t]{55mm}
                 \begin{flushleft}
-                    \color{htwg-white}\footnotesize\textbf{Konstanz,}
-                    \color{htwg-white}\footnotesize\textbf{25th April 2018}
+                    \color{htwg-white}\footnotesize\textbf{\@doc@location,}
+                    \color{htwg-white}\footnotesize\textbf{\@doc@date}
                 \end{flushleft}
             \end{minipage}
         };

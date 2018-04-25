@@ -155,41 +155,37 @@
 \fi
 
 
-\usepackage{helvet}
-\renewcommand{\familydefault}{\sfdefault}
-
-%% Define the TU Delft house style colors.
-\definecolor{tudelft-cyan}{cmyk}{1,0,0,0}
-\definecolor{tudelft-black}{cmyk}{0,0,0,1}
-\definecolor{tudelft-white}{cmyk}{0,0,0,0}
-\definecolor{tudelft-sea-green}{cmyk}{0.54,0,0.32,0}
-\definecolor{tudelft-green}{cmyk}{1,0.15,0.4,0}
-\definecolor{tudelft-dark-blue}{cmyk}{1,0.66,0,0.4}
-\definecolor{tudelft-purple}{cmyk}{0.98,1,0,0.35}
-\definecolor{tudelft-turquoise}{cmyk}{0.82,0,0.21,0.08}
-\definecolor{tudelft-sky-blue}{cmyk}{0.45,0,0.06,0.06}
-\definecolor{tudelft-lavendel}{cmyk}{0.45,0.2,0,0.07}
-\definecolor{tudelft-orange}{cmyk}{0.02,0.56,0.84,0}
-\definecolor{tudelft-warm-purple}{cmyk}{0.58,1,0,0.02}
-\definecolor{tudelft-fuchsia}{cmyk}{0.19,1,0,0.19}
-\definecolor{tudelft-bright-green}{cmyk}{0.36,0,1,0}
-\definecolor{tudelft-yellow}{cmyk}{0.02,0,0.54,0}
-
 %%%%%%%%%%%%
 %% HTWG
 %%%%%%%%%%%%
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+
+%%%%%%%%%%%%
+%% HTWG CI Colors
+%%%%%%%%%%%%
 \definecolor{htwg-white}{cmyk}{0.0,0.0,0.0,0.0}
 \definecolor{htwg-black}{cmyk}{0.0,0.0,0.0,1.0}
+\definecolor{htwg-black-90}{cmyk}{0.0,0.0,0.0,0.9}
+\definecolor{htwg-black-80}{cmyk}{0.0,0.0,0.0,0.8}
+\definecolor{htwg-black-70}{cmyk}{0.0,0.0,0.0,0.7}
+\definecolor{htwg-black-60}{cmyk}{0.0,0.0,0.0,0.6}
+\definecolor{htwg-black-50}{cmyk}{0.0,0.0,0.0,0.5}
+\definecolor{htwg-black-40}{cmyk}{0.0,0.0,0.0,0.4}
+\definecolor{htwg-black-30}{cmyk}{0.0,0.0,0.0,0.3}
+\definecolor{htwg-black-20}{cmyk}{0.0,0.0,0.0,0.2}
+\definecolor{htwg-black-10}{cmyk}{0.0,0.0,0.0,0.1}
 \definecolor{htwg-soft-blue}{cmyk}{0.1,0.0,0.0,0.1}
 \definecolor{htwg-dark-blue}{cmyk}{0.8,0.62,0.42,0.45}
 \definecolor{htwg-teal}{cmyk}{1.0,0.0,0.5,0.0}
 
-%% Use TU Delft cyan as the color for titles, unless the 'print' option is
+%% Use HTWG Teal as the color for titles, unless the 'print' option is
 %% specified.
 \if@print
     \colorlet{title}{black}
 \else
-    \colorlet{title}{tudelft-cyan}
+    \colorlet{title}{htwg-teal}
 \fi
 
 %% We use A4 paper with slightly smaller margins than the default (scale = 0.7).
@@ -237,6 +233,8 @@
 %%% Document
 \newcommand\doclocation[1]{\def\@doc@location{#1}}
 \newcommand\docdate[1]{\def\@doc@date{#1}}
+
+
 
 %% The cover image is scaled to fill the width of the front cover.
 \newlength\@cover@imagewidth
@@ -292,7 +290,6 @@
     %% Create a purple empty page without margins.
     \clearpage%
     \newgeometry{margin=0pt}%
-    %\pagecolor{tudelft-purple}%
     \thispagestyle{empty}%
 
     %%%%%%%%%%%%

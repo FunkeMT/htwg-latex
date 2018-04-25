@@ -177,6 +177,12 @@
 \definecolor{tudelft-bright-green}{cmyk}{0.36,0,1,0}
 \definecolor{tudelft-yellow}{cmyk}{0.02,0,0.54,0}
 
+%%%%%%%%%%%%
+%% HTWG
+%%%%%%%%%%%%
+\definecolor{htwg-white}{cmyk}{0.0,0.0,0.0,0.0}
+\definecolor{htwg-dark-blue}{cmyk}{0.8,0.62,0.42,0.45}
+
 %% Use TU Delft cyan as the color for titles, unless the 'print' option is
 %% specified.
 \if@print
@@ -265,7 +271,7 @@
         scale = 1, angle = 0, opacity = 1,
         contents = {\includegraphics[width = \paperwidth,
         height = \paperheight, keepaspectratio]
-        {Report_Cover_Example_filled.pdf}}
+        {Report_Cover_empty.pdf}}
     }
 
     %% We need the this to perform coordinate calculations in TikZ.
@@ -334,12 +340,25 @@
         %%%%%%%%%%%%
         %% HTWG
         %%%%%%%%%%%%
+        %% Create the date text box.
+
+        \node at (15.8mm,-82.1mm)[anchor=center]{
+            \includegraphics[scale=0.165]{cover/B_black}
+        };
+        \node at (36.8mm,-250.1mm)[anchor=center]{
+            \includegraphics[scale=0.17]{cover/S_black}
+        };
+        \node at (162.8mm,-124.1mm)[anchor=center]{
+            \includegraphics[scale=0.15]{cover/C_black}
+        };
+
+
         %% Create the titel text box.
-        \node at (14.5mm,-174.5mm)[anchor=north west]{
+        \node at (14.5mm,-174.5mm)[anchor=north west, fill=htwg-dark-blue]{
             \begin{minipage}[t]{145mm}
                 \begin{flushleft}
                 %% Print the title and optional subtitle at the top in white.
-                \color{red}\Huge\textbf{Bachelor Thesis}
+                \color{htwg-white}\Huge\textbf{Bachelor Thesis}
                 \ifx\@subtitle\undefined\else
                     \\
                     \Huge\@subtitle
@@ -349,27 +368,27 @@
         };
 
         %% Create the name text box.
-        \node at (140.5mm,-37mm)[anchor=north west]{
+        \node at (140.5mm,-37mm)[anchor=north west, fill=htwg-dark-blue]{
             \begin{minipage}[t]{55mm}
                 \begin{flushleft}
-                    \color{red}\footnotesize\textbf{Submitted by}
+                    \color{htwg-white}\footnotesize\textbf{Submitted by}
                     \linebreak
-                    \color{red}\footnotesize{Markus Funke}
+                    \color{htwg-white}\footnotesize{Markus Funke}
                     \linebreak 
-                    \color{red}\footnotesize{Student Number 291992}
+                    \color{htwg-white}\footnotesize{Student Number 291992}
                     \linebreak
                     \linebreak
-                    \color{red}\footnotesize{markus.funke@htwg-konstanz.de}
+                    \color{htwg-white}\footnotesize{markus.funke@htwg-konstanz.de}
                 \end{flushleft}
             \end{minipage}
         };
 
         %% Create the date text box.
-        \node at (140.5mm,-268mm)[anchor=north west]{
+        \node at (140.5mm,-268mm)[anchor=north west, fill=htwg-dark-blue]{
             \begin{minipage}[t]{55mm}
                 \begin{flushleft}
-                    \color{red}\footnotesize\textbf{Konstanz,}
-                    \color{red}\footnotesize\textbf{25th April 2018}
+                    \color{htwg-white}\footnotesize\textbf{Konstanz,}
+                    \color{htwg-white}\footnotesize\textbf{25th April 2018}
                 \end{flushleft}
             \end{minipage}
         };

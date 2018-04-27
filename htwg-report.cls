@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{tudelft-report}[2013/10/30 v1.1 TU Delft report class]
+\ProvidesClass{htwg-report}[2018/04/27 v1. HTWG Konstanz report class]
 
 \newif\if@german
 \newif\if@english
@@ -295,11 +295,11 @@
             \coordinate (spine top left) at ($(spine top left)-(1pt,0pt)$);
 
             %% Draw a black box on the spine.
-            \fill[fill=tudelft-black](spine top left) rectangle (spine bottom right);
+            \fill[fill=htwg-black](spine top left) rectangle (spine bottom right);
 
             %% Print the title on the center right of the spine box.
             \node at (spine bottom center)[rotate=-90,anchor=east,inner sep=\@cover@margin]{
-                \htwgrmfamily\color{tudelft-white}\LARGE\@title
+                \htwgrmfamily\color{htwg-white}\LARGE\@title
             };
         \fi\fi
 

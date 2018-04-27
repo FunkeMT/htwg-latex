@@ -261,7 +261,7 @@
         scale = 1, angle = 0, opacity = 1,
         contents = {\includegraphics[width = \paperwidth,
         height = \paperheight, keepaspectratio]
-        {Report_Cover_empty.pdf}}
+        {report_cover_empty.pdf}}
     }
 
     %% We need the this to perform coordinate calculations in TikZ.

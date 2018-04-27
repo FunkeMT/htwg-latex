@@ -1,10 +1,10 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{tudelft-report}[2013/10/30 v1.1 TU Delft report class]
 
-\newif\if@dutch
+\newif\if@german
 \newif\if@english
-\DeclareOption{dutch}{\@dutchtrue\@englishfalse}
-\DeclareOption{english}{\@dutchfalse\@englishtrue}
+\DeclareOption{german}{\@germantrue\@englishfalse}
+\DeclareOption{english}{\@germanfalse\@englishtrue}
 \newif\if@nativefonts
 \DeclareOption{nativefonts}{\@nativefontstrue}
 \newif\if@print
@@ -17,14 +17,14 @@
 
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
-%% English is the default language, but this can be changed to Dutch by
-%% specifying the 'dutch' option to the document class.
-\if@dutch
-    \RequirePackage[dutch]{babel}
+%% English is the default language, but this can be changed to German by
+%% specifying the 'german' option to the document class.
+\if@german
+    \RequirePackage[ngerman]{babel}
 \else
-    %% Even for English reports, some sections might be in Dutch, for example on
+    %% Even for English reports, some sections might be in german, for example on
     %% the title page.
-    \RequirePackage[dutch,english]{babel}
+    \RequirePackage[ngerman,english]{babel}
 \fi
 \RequirePackage[nooneline,footnotesize]{caption}
 \RequirePackage{fancyhdr}

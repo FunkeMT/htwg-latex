@@ -1,5 +1,9 @@
+%% This is file `htwg-report.bst`.
 %%
-%% This is file `tudelft-report.bst'.
+%% Based on:
+%% `tudelft-report.bst'
+%% see: https://github.com/praseodym/tudelft-report-latex/tree/4983bea3e88ae9010bc25576f36ebefed3257228
+%%
 %%
 %% The original source file was: `apsrev4-1.bst'.
 %% ----------------------------------------

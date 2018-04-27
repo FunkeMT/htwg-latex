@@ -63,70 +63,59 @@
 \RequirePackage{xkeyval}
 
 \ifxetex
-    %% If the document is compiled with XeLaTeX, we load the TU Delft house
-    %% style fonts: Bookman Old Style (serif) for titles and Tahoma (sans-serif)
-    %% for text. Even if the nativefonts option was specified, we need these
-    %% fonts for the cover.
-    \newfontfamily\tudrmfamily[
-        Path = fonts/,
-        Extension = .ttf,
-        BoldFont = *-Bold,
-        ItalicFont = *-Italic,
-        BoldItalicFont = *-BoldItalic
-    ]{BookmanOldStyle}
-    \newfontfamily\tudsffamily[
+    %% If the document is compiled with XeLaTeX, we load the
+    %% HTWG CI style font: swis721 Regular and Bold (sans serif)
+    %%
+    %% As serif font we load: Georgia Regular and Bold and Italic (serif)
+    \newfontfamily\htwgsffamily[
         Path = fonts/,
         Extension = .ttf,
         BoldFont = *-Bold,
         ItalicFont = *,
-        ItalicFeatures = FakeSlant,
-        BoldItalicFont = *-Bold,
-        BoldItalicFeatures = FakeSlant
-    ]{Tahoma}
+        BoldItalicFont = *
+    ]{swis721}
+    \newfontfamily\htwgrmfamily[
+        Path = fonts/,
+        Extension = .ttf,
+        BoldFont = *-Bold,
+        ItalicFont = *-Italic,
+        BoldItalicFont = *-Bold-Italic
+    ]{Georgia}
 \else
     %% If the document is not compiled with XeLaTeX, we need to use the native
     %% fonts.
     \@nativefontstrue
-    \newcommand*\tudrmfamily{\rmfamily}
-    \newcommand*\tudsffamily{\sffamily}
+    \newcommand*\htwgrmfamily{\rmfamily}
+    \newcommand*\htwgsffamily{\sffamily}
 \fi
 
 \if@nativefonts
+    %% As a fallback, we use Arial
     %% The native font is Utopia Regular with Fourier math. We use Latin Modern
     %% as a fallback, since Utopia lacks support for sans-serif and monospace.
-    \RequirePackage[T1]{fontenc}
-    \RequirePackage[utf8]{inputenc}
-    \RequirePackage{lmodern}
-    \RequirePackage{fourier}
-    %% The style for titles is small caps.
-    \def\titlefont{\rmfamily}
-    \def\titleshape{\scshape}
-    \def\titlestyle{\titlefont\titleshape\bfseries}
-    \if@print
-        \def\headerstyle{\titlefont\titleshape\bfseries}
-    \else
-        \def\headerstyle{\titlefont\titleshape}
-    \fi
+
+    \RequirePackage{helvet}
+    \renewcommand{\familydefault}{\sfdefault}
 \else
-    %% Apart from Bookman Old Style and Tahoma, we use Courier New for monospace
-    %% and Cambria for math.
+    %% swis721 for sans serif [main font]
+    %% Georgia for sans
+    %% Courier New for monospace
+    %% Cambria for math
     \RequirePackage{unicode-math}
     \setmainfont[
         Path = fonts/,
         Extension = .ttf,
         BoldFont = *-Bold,
-        ItalicFont = *-Italic,
-        BoldItalicFont = *-BoldItalic
-    ]{BookmanOldStyle}
+        ItalicFont = *,
+        BoldItalicFont = *
+    ]{swis721}
     \setsansfont[
         Path = fonts/,
         Extension = .ttf,
         BoldFont = *-Bold,
-        ItalicFont = *,
-        ItalicFeatures = FakeSlant,
-        BoldItalicFont = *-Bold,
-        BoldItalicFeatures = FakeSlant
-    ]{Tahoma}
+        ItalicFont = *-Italic,
+        BoldItalicFont = *-Bold-Italic
+    ]{Georgia}
     \setmonofont[
         Path = fonts/,
         Extension = .ttf,
@@ -139,25 +128,9 @@
         Path = fonts/,
         Extension = .ttf
     ]{CambriaMath}
-    %% The default style for text is Tahoma (sans-serif).
-    \renewcommand*\familydefault{\sfdefault}
-    %% The default style for titles is Bookman Old Style (serif).
-    \def\titlefont{\rmfamily}
-    \def\titleshape{}
-    \if@print
-        \def\titlestyle{\titlefont\titleshape\bfseries}
-    \else
-        \def\titlestyle{\titlefont\titleshape}
-    \fi
-    \def\headerstyle{\titlestyle}
+    %% The default style for text
+    \renewcommand*\familydefault{\rmdefault}
 \fi
-
-
-%%%%%%%%%%%%
-%% HTWG
-%%%%%%%%%%%%
-\usepackage{helvet}
-\renewcommand{\familydefault}{\sfdefault}
 
 
 %%%%%%%%%%%%
@@ -326,7 +299,7 @@
 
             %% Print the title on the center right of the spine box.
             \node at (spine bottom center)[rotate=-90,anchor=east,inner sep=\@cover@margin]{
-                \tudrmfamily\color{tudelft-white}\LARGE\@title
+                \htwgrmfamily\color{tudelft-white}\LARGE\@title
             };
         \fi\fi
 
@@ -450,18 +423,18 @@
     \fancyhf{}
     \renewcommand*\headrulewidth{0pt}
     \renewcommand*\footrulewidth{0pt}
-    \fancyfoot[C]{\titlefont\thepage}
+    \fancyfoot[C]{\thepage}
 }
 
 %% Fancy style for the main matter.
 \fancypagestyle{mainmatter}{%
     \fancyhf{}
     %% Page numbers on the top left and top right.
-    \fancyhead[LE,RO]{\titlefont\thepage}
+    \fancyhead[LE,RO]{\thepage}
     %% Chapter name on the left (even) page.
-    \fancyhead[RE]{\titlefont\titleshape\nouppercase{\leftmark}}
+    \fancyhead[RE]{\nouppercase{\leftmark}}
     %% Section name on the right (odd) page.
-    \fancyhead[LO]{\titlefont\titleshape\nouppercase{\rightmark}}
+    \fancyhead[LO]{\nouppercase{\rightmark}}
 }
 
 %% The mainmatter style is default for normal pages.
@@ -495,7 +468,7 @@
 %% A part title starts with a huge (96pt) bold black number, flushed to the
 %% right, followed by the part name on the next line in the title color.
 \titleformat{\part}[display]
-    {\flushright\titlestyle}
+    {\flushright}
     {\fontsize{96pt}{96pt}\selectfont\bfseries\thepart}
     {0pt}
     {\Huge\color{title}}
@@ -503,23 +476,23 @@
 \titlespacing{\part}{0pt}{0pt}{2\baselineskip}
 %% In the table of contents, the part name is preceded by an empty line, printed
 %% in bold, and not followed by a line of dots.
-\dottedcontents{part}[0em]{\vspace{\baselineskip}\titlefont\bfseries}{1.5em}{0pc}
+\dottedcontents{part}[0em]{\vspace{\baselineskip}\bfseries}{1.5em}{0pc}
 
 %% Chapter titles have the same layout as parts.
 \titleformat{\chapter}[display]
-    {\flushright\titlestyle}
+    {\flushright}
     {\fontsize{96pt}{96pt}\selectfont\bfseries\thechapter}
     {0pt}
     {\Huge\color{title}}
 \titlespacing{\chapter}{0pt}{0pt}{2\baselineskip}
 %% In the table of contents, a chapter is similar to a part, except that it is
 %% preceded by half an empty line.
-\dottedcontents{chapter}[1.5em]{\vspace{0.5\baselineskip}\titlefont\bfseries}{1.5em}{0pc}
+\dottedcontents{chapter}[1.5em]{\vspace{0.5\baselineskip}\bfseries}{1.5em}{0pc}
 
 %% Section titles start with the number in bold, followed by the name printed
 %% in the title color.
 \titleformat{\section}
-    {\Large\headerstyle}
+    {\Large}
     {\bfseries\thesection.\ }
     {0pt}
     {\color{title}}
@@ -527,22 +500,22 @@
 \titlespacing{\section}{0pt}{\baselineskip}{0pt}
 %% In the table of contents, section names are followed by a line of dots 8pt
 %% apart.
-\dottedcontents{section}[3.8em]{\titlefont}{2.3em}{8pt}
+\dottedcontents{section}[3.8em]{}{2.3em}{8pt}
 
 %% Subsection titles have the same layout as section titles, except in a smaller
 %% font.
 \titleformat{\subsection}
-    {\large\headerstyle}
+    {\large}
     {\bfseries\thesubsection.\ }
     {0pt}
     {\color{title}}
 \titlespacing{\subsection}{0pt}{\baselineskip}{0pt}
-\dottedcontents{subsection}[7em]{\titlefont}{3.2em}{8pt}
+\dottedcontents{subsection}[7em]{}{3.2em}{8pt}
 
 %% Subsubsections have the same font and color as sections and subsections, but
 %% are not preceded by a number.
 \titleformat{\subsubsection}
-    {\headerstyle}
+    {}
     {}
     {0pt}
     {\color{title}}

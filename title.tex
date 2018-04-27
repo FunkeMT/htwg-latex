@@ -14,14 +14,14 @@
 
 %% Print the title in cyan.
 {\makeatletter
-\titlestyle\color{htwg-teal}\Huge\@title
+\color{htwg-teal}\Huge\@title
 \makeatother}
 
 %% Print the optional subtitle in black.
 {\makeatletter
 \ifx\@subtitle\undefined\else
     \bigskip
-    \titlefont\titleshape\LARGE\@subtitle
+    \LARGE\@subtitle
 \fi
 \makeatother}
 
@@ -36,7 +36,7 @@ by
 
 %% Print the name of the author.
 {\makeatletter
-\titlefont\Large\bfseries\@author
+\Large\bfseries\@author
 \makeatother}
 
 \vfill

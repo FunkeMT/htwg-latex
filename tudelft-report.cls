@@ -35,11 +35,11 @@
 %%%%%%%%%%%%
 %% HTWG
 %%%%%%%%%%%%
+% 'background' includes 'graphicx' as well
 \RequirePackage[firstpage=true]{background}
 
 \ifxetex
     \RequirePackage[xetex]{geometry}
-    %\RequirePackage[xetex]{graphicx}
     \RequirePackage[xetex]{hyperref}
     \RequirePackage{fontspec}
     \RequirePackage{xltxtra}
@@ -47,11 +47,9 @@
 \else
     \ifpdf
         \RequirePackage[pdftex]{geometry}
-        %\RequirePackage[pdftex]{graphicx}
         \RequirePackage[pdftex]{hyperref}
     \else
         \RequirePackage[dvips]{geometry}
-        %\RequirePackage[dvips]{graphicx}
         \RequirePackage[hypertex]{hyperref}
     \fi
 \fi

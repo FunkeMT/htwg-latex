@@ -509,7 +509,7 @@
     {0pt}
     {\color{title}}
 %% Sections are preceded by an empty line.
-\titlespacing{\section}{0pt}{\baselineskip}{0pt}
+\titlespacing{\section}{0pt}{2\baselineskip}{1.5\baselineskip}
 %% In the table of contents, section names are followed by a line of dots 8pt
 %% apart.
 \dottedcontents{section}[3.8em]{}{2.3em}{8pt}
@@ -521,7 +521,7 @@
     {\bfseries\thesubsection.\ }
     {0pt}
     {\color{title}}
-\titlespacing{\subsection}{0pt}{\baselineskip}{0pt}
+\titlespacing{\subsection}{0pt}{1.5\baselineskip}{\baselineskip}
 \dottedcontents{subsection}[7em]{}{3.2em}{8pt}
 
 %% Subsubsections have the same font and color as sections and subsections, but

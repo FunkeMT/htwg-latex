@@ -472,9 +472,9 @@
 
 %% Draw the line above a footnote in the title color as well.
 \renewcommand*\footnoterule{%
-    \vspace*{-3pt}%
+    \vspace*{20pt}%
     {\color{title}\hrule width 0.5\textwidth height 0.4pt}%
-    \vspace*{2.6pt}%
+    \vspace*{3pt}%
 }
 
 %% A part title starts with a huge (96pt) bold black number, flushed to the

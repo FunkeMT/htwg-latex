@@ -47,6 +47,21 @@
 % 'background' includes 'graphicx' as well
 \RequirePackage[firstpage=true]{background}
 
+
+\usepackage{eso-pic}
+\newcommand\BackgroundImgTitelPage{
+    \put(0,0){
+        \parbox[b][\paperheight]{\paperwidth}{%
+            \vfill
+            \centering
+            \includegraphics[height=\paperheight,width=\paperwidth,
+            keepaspectratio]{report_titel_page.pdf}%
+            \vfill
+        }
+    }
+}
+
+
 \ifxetex
     \RequirePackage[xetex]{geometry}
     \RequirePackage[xetex]{hyperref}
@@ -383,7 +398,7 @@
             \end{minipage}
         };
 
-        
+
         %% Create the date text box.
         \node at (140.5mm,-268mm)[anchor=north west, fill=htwg-dark-blue]{
             \begin{minipage}[t]{55mm}

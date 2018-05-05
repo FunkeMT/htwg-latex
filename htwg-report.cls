@@ -1,3 +1,15 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% HTWG Corporate Identity LaTeX Template
+%% for Reports and Theses
+%%
+%% Based on 'tudelft-report-latex':
+%% https://github.com/praseodym/tudelft-report-latex/tree/4983bea3e88ae9010bc25576f36ebefed3257228
+%%
+%% HTWG Corporate Design:
+%% https://www.htwg-konstanz.de/hochschule/einrichtungen/stabsstelle-kommunikation/corporate-design-logo/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{htwg-report}[2018/04/27 v1. HTWG Konstanz report class]
 
@@ -32,9 +44,6 @@
 \RequirePackage{ifpdf}
 \RequirePackage{ifxetex}
 
-%%%%%%%%%%%%
-%% HTWG
-%%%%%%%%%%%%
 % 'background' includes 'graphicx' as well
 \RequirePackage[firstpage=true]{background}
 
@@ -175,10 +184,6 @@
     \hypersetup{pdfauthor=#1}%
 }
 
-%%%%%%%%%%%%
-%% HTWG
-%%%%%%%%%%%%
-
 %%% Report-Type
 % 'bachelor'
 % 'master'
@@ -239,14 +244,6 @@
 \define@key{cover}{margin}{\setlength\@cover@margin{#1}}
 
 
-
-
-
-
-
-
-
-
 \newcommand*\makecover[1][]{%
     \setkeys{cover}{#1}%
     %% Create a purple empty page without margins.
@@ -254,9 +251,7 @@
     \newgeometry{margin=0pt}%
     \thispagestyle{empty}%
 
-    %%%%%%%%%%%%
-    %% HTWG
-    %%%%%%%%%%%%
+    %% Create background for cover page (first page)
     \backgroundsetup{
         scale = 1, angle = 0, opacity = 1,
         contents = {\includegraphics[width = \paperwidth,
@@ -327,10 +322,10 @@
         \addtolength\@cover@fronttextheight{-2\@cover@margin}
 
 
-        %%%%%%%%%%%%
-        %% HTWG
-        %%%%%%%%%%%%
         %% Create the background elements.
+        %% - bachelor (B S C)
+        %% - master   (M S C)
+        %% - other    (none)
         \begingroup
             \ifx\@report@type\bachelor
                 \node at (15.8mm,-82.1mm)[anchor=center]{
@@ -358,8 +353,6 @@
         \endgroup
 
 
-
-
         %% Create the titel text box.
         \node at (14.5mm,-174.5mm)[anchor=north west, fill=htwg-dark-blue]{
             \begin{minipage}[t]{145mm}
@@ -372,6 +365,7 @@
                 \end{flushleft}
             \end{minipage}
         };
+
 
         %% Create the author text box.
         \node at (140.5mm,-37mm)[anchor=north west, fill=htwg-dark-blue]{
@@ -389,6 +383,7 @@
             \end{minipage}
         };
 
+        
         %% Create the date text box.
         \node at (140.5mm,-268mm)[anchor=north west, fill=htwg-dark-blue]{
             \begin{minipage}[t]{55mm}

@@ -44,23 +44,12 @@
 \RequirePackage{ifpdf}
 \RequirePackage{ifxetex}
 
-% 'background' includes 'graphicx' as well
+%% 'background' includes 'graphicx' as well
 \RequirePackage[firstpage=true]{background}
 
-
-\usepackage{eso-pic}
-\newcommand\BackgroundImgTitelPage{
-    \put(0,0){
-        \parbox[b][\paperheight]{\paperwidth}{%
-            \vfill
-            \centering
-            \includegraphics[height=\paperheight,width=\paperwidth,
-            keepaspectratio]{report_titel_page.pdf}%
-            \vfill
-        }
-    }
-}
-
+%% 'eso-pic' for individual background picture
+%% like at the title page
+\RequirePackage{eso-pic}
 
 \ifxetex
     \RequirePackage[xetex]{geometry}
@@ -197,6 +186,19 @@
 \renewcommand*\author[1]{%
     \def\@author{#1}%
     \hypersetup{pdfauthor=#1}%
+}
+
+%%% Define Command for background image for Title Page
+\newcommand\BackgroundImgTitelPage{
+    \put(0,0){
+        \parbox[b][\paperheight]{\paperwidth}{%
+            \vfill
+            \centering
+            \includegraphics[height=\paperheight,width=\paperwidth,
+            keepaspectratio]{report_titel_page.pdf}%
+            \vfill
+        }
+    }
 }
 
 %%% Report-Type

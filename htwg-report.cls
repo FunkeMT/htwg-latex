@@ -172,8 +172,8 @@
     \colorlet{title}{htwg-teal}
 \fi
 
-%% We use A4 paper with slightly smaller margins than the default (scale = 0.7).
-\geometry{a4paper,hscale=0.75,vscale=0.8}
+%% We use A4 paper with default margins (scale = 0.7).
+\geometry{a4paper,hscale=0.7,vscale=0.8}
 
 %% Redefine the title command to accept an optional subtitle.
 \renewcommand*\title[2][]{%

@@ -20,7 +20,7 @@ If the document becomes large, it is easy to miss warnings about the layout in t
 
 This template has the option to automatically generate a cover page with the \texttt{\textbackslash makecover} command. See the next section for a detailed description.
 
-The contents of the report are included between the \texttt{\textbackslash begin\{document\}} and \texttt{\textbackslash end\{document\}} commands, and split into three parts by
+The contents of the report are included between the \texttt{\textbackslash begin\{document\}} and \texttt{\textbackslash end} commands, and split into three parts by
 \begin{enumerate}
 \item\texttt{\textbackslash frontmatter}, which uses Roman numerals for the page numbers and is used for the title page and the table of contents;
 \item\texttt{\textbackslash mainmatter}, which uses Arabic numerals for the page numbers and is the style for the chapters;
@@ -32,7 +32,7 @@ The bibliography, finally, is generated automatically with
 \begin{quote}
     \texttt{\textbackslash bibliography\{report\}}
 \end{quote}
-from \texttt{report.bib}. Although it is possible to manage the bibliography by hand, we recommend using EndNote (available from Blackboard) or JabRef (available from \url{http://jabref.sourceforge.net/}). The bibliography style is specified in \texttt{tudelft-report.bst}, which is a modified version of \texttt{apsrev4-1.bst} (from REVTeX) designed to also display the titles of referenced articles. The template will automatically generate clickable hyperlinks if a URL or DOI (digital object identifier) is present for the reference. As an example, we cite the paper by Nobel Prize winner Andre Geim and his pet hamster \cite{Geim2001}. If you need to use a different style, change
+from \texttt{report.bib}. Although it is possible to manage the bibliography by hand, we recommend using EndNote (available from Blackboard) or JabRef (available from \url{http://jabref.sourceforge.net/}). The bibliography style is specified in \texttt{report.bst}, which is a modified version of \texttt{apsrev4-1.bst} (from REVTeX) designed to also display the titles of referenced articles. The template will automatically generate clickable hyperlinks if a URL or DOI (digital object identifier) is present for the reference. As an example, we cite the paper by Nobel Prize winner Andre Geim and his pet hamster \cite{Geim2001}. If you need to use a different style, change
 \begin{quote}
     \texttt{\textbackslash bibliographystyle\{tudelft-report\}}
 \end{quote}

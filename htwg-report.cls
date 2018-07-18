@@ -25,7 +25,10 @@
 \ExecuteOptions{english}
 \ProcessOptions\relax
 
-\LoadClass[10pt]{book}
+\LoadClass[11pt]{book}
+
+\RequirePackage{setspace}
+\onehalfspacing
 
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
@@ -173,7 +176,7 @@
 \fi
 
 %% We use A4 paper with default margins (scale = 0.7).
-\geometry{a4paper,hscale=0.7,vscale=0.73}
+\geometry{a4paper,hscale=0.7,vscale=0.75}
 
 %% Redefine the title command to accept an optional subtitle.
 \renewcommand*\title[2][]{%
@@ -385,28 +388,28 @@
 
 
         %% Create the author text box.
-        \node at (140.5mm,-37mm)[anchor=north west, fill=htwg-dark-blue]{
+        \node at (139.8mm,-37mm)[anchor=north west, fill=htwg-dark-blue]{
             \begin{minipage}[t]{55mm}
                 \begin{flushleft}
-                    \color{htwg-white}\footnotesize\textbf{Submitted by}
+                    \color{htwg-white}\scriptsize\textbf{Submitted by}
                     \linebreak
-                    \color{htwg-white}\footnotesize{\@author}
+                    \color{htwg-white}\scriptsize{\@author}
                     \linebreak 
-                    \color{htwg-white}\footnotesize{Student Number \@student@number}
+                    \color{htwg-white}\scriptsize{Student Number \@student@number}
                     \linebreak
                     \linebreak
-                    \color{htwg-white}\footnotesize{\@student@email}
+                    \color{htwg-white}\scriptsize{\@student@email}
                 \end{flushleft}
             \end{minipage}
         };
 
 
         %% Create the date text box.
-        \node at (140.5mm,-268mm)[anchor=north west, fill=htwg-dark-blue]{
+        \node at (139.8mm,-268mm)[anchor=north west, fill=htwg-dark-blue]{
             \begin{minipage}[t]{55mm}
                 \begin{flushleft}
-                    \color{htwg-white}\footnotesize\textbf{\@doc@location,}
-                    \color{htwg-white}\footnotesize\textbf{\@doc@date}
+                    \color{htwg-white}\scriptsize\textbf{\@doc@location,}
+                    \color{htwg-white}\scriptsize\textbf{\@doc@date}
                 \end{flushleft}
             \end{minipage}
         };

@@ -173,7 +173,7 @@
 \fi
 
 %% We use A4 paper with default margins (scale = 0.7).
-\geometry{a4paper,hscale=0.7,vscale=0.8}
+\geometry{a4paper,hscale=0.7,vscale=0.73}
 
 %% Redefine the title command to accept an optional subtitle.
 \renewcommand*\title[2][]{%

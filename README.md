@@ -1,4 +1,4 @@
-# HTWG Corporate Identity LaTeX Template for Reports and Theses
+# HTWG Corporate Identity LaTeX Template
 
 [![Build Status](https://travis-ci.org/FunkeMT/htwg-latex.svg?branch=master)](https://travis-ci.org/FunkeMT/htwg-latex)
 

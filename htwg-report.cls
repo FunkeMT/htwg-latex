@@ -46,6 +46,14 @@
 \RequirePackage[flushmargin,hang]{footmisc}
 \RequirePackage{ifpdf}
 \RequirePackage{ifxetex}
+\RequirePackage[hyphens]{url}
+\RequirePackage{listings}
+\RequirePackage{rotating}
+\RequirePackage[table]{xcolor}
+\RequirePackage{longtable}
+
+\lstset{basicstyle=\footnotesize\ttfamily,breaklines=true}
+\lstset{framextopmargin=50pt}
 
 %% 'background' includes 'graphicx' as well
 \RequirePackage[firstpage=true]{background}
@@ -70,13 +78,22 @@
     \fi
 \fi
 \RequirePackage{metalogo}
-\RequirePackage[numbers,sort&compress]{natbib}
 \RequirePackage{tikz}
 \RequirePackage[noindentafter]{titlesec}
 \RequirePackage{titletoc}
-\RequirePackage[nottoc]{tocbibind}
-\RequirePackage{xcolor}
+
 \RequirePackage{xkeyval}
+
+%% BIB
+\RequirePackage[
+	backend=biber,
+	style=alphabetic,
+	sorting=ynt
+]{biblatex}
+\DefineBibliographyStrings{english}{%
+  bibliography = {References},
+}
+
 
 \ifxetex
     %% If the document is compiled with XeLaTeX, we load the
@@ -203,6 +220,13 @@
         }
     }
 }
+
+%% Table Settings
+\renewcommand{\arraystretch}{2}
+\rowcolors{2}{htwg-black-10}{white}
+
+% Setting the graphicspath
+\graphicspath{{figs/}} 
 
 %%% Report-Type
 % 'bachelor'
@@ -544,9 +568,6 @@
 \renewcommand*\labelitemii{\color{title}--}
 \renewcommand*\labelitemiii{\color{title}$\diamond$}
 \renewcommand*\labelitemiv{\color{title}\textperiodcentered}
-
-%% Use a custom bibliography style based on apsrev4-1.
-\bibliographystyle{htwg-report}
 
 %% Hyperlinks are cyan, except in print mode, when they are all black.
 \hypersetup{

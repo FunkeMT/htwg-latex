@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/FunkeMT/htwg-latex.svg?branch=master)](https://travis-ci.org/FunkeMT/htwg-latex)
+
 # HTWG Corporate Identity LaTeX Template for Reports and Theses
 
 > Based on _tudelft-report-latex_

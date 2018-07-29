@@ -3,4 +3,4 @@ dist: trusty
 before_install:
 - sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-full
 script:
-- xelatex -synctex=1 -interaction=nonstopmode -halt-on-error report.tex
+- pdflatex -interaction=nonstopmode -halt-on-error report.tex
